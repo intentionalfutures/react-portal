@@ -123,7 +123,7 @@ var Portal = (function (_React$Component) {
     key: 'render',
     value: function render() {
       if (this.props.openByClickOn) {
-        return cloneWithProps(this.props.openByClickOn, { openPortal: this.openPortal });
+        return cloneWithProps(this.props.openByClickOn, { openPortal: this.openPortal, active: this.state.active });
       } else {
         return null;
       }
