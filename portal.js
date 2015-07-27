@@ -38,6 +38,7 @@ var Portal = (function (_React$Component) {
     this.state = { active: false };
     this.openPortal = this.openPortal.bind(this);
     this.closePortal = this.closePortal.bind(this);
+    this.togglePortal = this.togglePortal.bind(this);
     this.handleOutsideMouseClick = this.handleOutsideMouseClick.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.portal = null;
@@ -123,7 +124,7 @@ var Portal = (function (_React$Component) {
     key: 'render',
     value: function render() {
       if (this.props.openByClickOn) {
-        return cloneWithProps(this.props.openByClickOn, { openPortal: this.openPortal, active: this.state.active });
+        return cloneWithProps(this.props.openByClickOn, { openPortal: this.openPortal, togglePortal: this.togglePortal, active: this.state.active });
       } else {
         return null;
       }
@@ -152,6 +153,11 @@ var Portal = (function (_React$Component) {
       if (this.props.onClose) {
         this.props.onClose();
       }
+    }
+  }, {
+    key: 'togglePortal',
+    value: function togglePortal(e) {
+      if (this.state.active) this.closePortal();else this.openPortal(e);
     }
   }, {
     key: 'handleOutsideMouseClick',
